@@ -451,7 +451,7 @@ struct Wypozyczenia MakeWypozyczenia(){
 	scanf("%d",&wyp.data_wyp);
 	printf("\nPodaj date zwrotu: ");
 	scanf("%d",&wyp.data_zwrotu);
-	printf("Podaj kacuje: ");
+	printf("Podaj kaucje: ");
 	scanf("%d",&wyp.kaucja);
 	printf("Podaj cene");
 	scanf("%d",&wyp.cena);
