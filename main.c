@@ -57,7 +57,66 @@ int main(){
 			scanf("%d",&n);
 			RemoveOsoba(n,&tOsoby);
 			break;
-		//tak dalej
+	
+        case 32:
+                puts("Usunac ktory wiersz tablicy Auto?: ");
+                scanf("%d",&n);
+                RemoveAuto(n,&tAuta);
+                break;
+        case 33:
+                puts("Usunac ktory wiersz tablicy Wypozyczenia?: ");
+                scanf("%d",&n);
+                RemoveWypozyczenie(n,&tWypozyczenia);
+                break;
+        case 41:							
+                puts("Wybierz rekord z tabeli, ktory chcesz zmodyfikowac");
+                puts("1 - Osoby\n 2 - Auta\n 3 - Wypozyczenia\n");
+                scanf("%d", &n);
+                if(n == 1){
+                    puts("Podaj numer wiersza do edycji: ");
+                    scanf("%d", &n);
+                    if(n >= 0 && n < linesO){
+                        struct Osoba osoba = tOsoby[n];
+                        puts("Podaj nowe dane w nastepujacej kolejnosci(imie, nazwisko, adres");
+                        scanf("%s %s %s", osoba.imie, osoba.nazwisko, osoba.adres);
+                        Osoby[n] = osoba;
+                        puts("Dane zostaly nadpisane");
+                    }
+                   
+                }
+                
+               else if(n == 2){
+                    puts("Podaj numer wiersza do edycji: ");
+                    scanf("%d", &n);
+                    if(n >= 0 && n < linesA){
+                        struct Auto auto = tAuta[n];
+                        puts("Podaj nowe dane w nastepujacej kolejnosci(marka, model, kolor");
+                        scanf("%s %s %s", auto.marka, auto.model, auto.kolor);
+                        Auta[n] = auto;
+                        puts("Dane zostaly nadpisane");
+                    }
+                    
+                    
+                   
+                }
+             else if(n == 3){
+                    puts("Podaj numer wiersza do edycji");
+                    scanf("%d", &n);
+                    if(n >= 0 && n < linesW){
+                        struct Wypozyczenia wypozyczenia = tWypozyczenia[n];
+                        puts("Podaj nowe dane w nastepujacej kolejnosci(Numer klienta, numer samochodu, data wypozyczenia, data zwrotu");
+                        scanf("%u %u %u %u", &wypozyczenia.nr_klienta, &wypozyczenia.nr_samochodu, &wypozyczenia.data_wyp, &wypozyczenia.data_zwrotu);
+                        Wypozyczenia[n] = wypozyczenia;
+                        puts("Dane zostaly nadpisane");
+                        
+                        
+                    }
+                    else{
+                        puts("Podaj poprawna wartosc!")
+                    }
+                }
+                            break;
+                        
 		case 9:
 			loop = 0;
 			break;
