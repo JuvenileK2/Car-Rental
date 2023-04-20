@@ -57,7 +57,17 @@ int main(){
 			scanf("%d",&n);
 			RemoveOsoba(n,&tOsoby);
 			break;
-		//tak dalej
+		case 32:
+				puts("Usunac ktory wiersz tablicy Auto? : "); 
+				scanf("%d",&n);
+				RemoveAuto(n,&tAuta);
+				break; 
+		case 33:
+				puts("Usunac ktory wiersz tablicy Wypozyczenia? : "); 
+				scanf("%d",&n);
+				RemoveWypozyczenie(n,&tWypozyczenia);
+				break;
+				
 		case 9:
 			loop = 0;
 			break;
