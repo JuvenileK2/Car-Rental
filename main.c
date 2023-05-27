@@ -59,7 +59,37 @@ int main(){
 			scanf("%d",&n);
 			RemoveOsoba(n,&tOsoby);
 			break;
-		//tak dalej
+		case 32:
+                {
+                int n;
+                puts("Podaj numer wiersza do edycji: ");
+                scanf("%d", &n);
+                if (n >= 0 && n < linesW) {
+                struct Wypozyczenia wypozyczenie = tWypozyczenia[n];
+                puts("Podaj nowe dane w nastepujacej kolejnosci (Numer klienta, numer samochodu, data wypozyczenia, data zwrotu, cena, kaucja)");
+                scanf("%d %d %s %s %f %f", &wypozyczenie.nr_klienta, &wypozyczenie.nr_samochodu, wypozyczenie.data_wyp, wypozyczenie.data_zwrotu, &wypozyczenie.cena, &wypozyczenie.kaucja);
+                tWypozyczenia[n] = wypozyczenie;
+                puts("Dane zostaly nadpisane");
+
+                FILE* file = fopen("Wypozyczenia.txt", "r+");
+
+                if (file != NULL) {
+                fseek(file, n * sizeof(struct Wypozyczenia), SEEK_SET);
+                fwrite(&wypozyczenie, sizeof(struct Wypozyczenia), 1, file);
+                fclose(file);
+                }
+                else
+                    {
+                    puts("Blad otwarcia pliku");
+                    }
+                }
+                else
+                {
+                    puts("Podaj poprawny numer wiersza!");
+                }
+        }
+break;
+
 		case 9:
 			loop = 0;
 			break;
